@@ -3,6 +3,7 @@ import React from 'react';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
+import Slideshow from '../components/SlideShow';
 import "./Work.css"
 function Work() {
     return ( 
@@ -14,6 +15,11 @@ function Work() {
             </div>
             
             <Card/>
+            <center>
+                <h1 id='gallery'>Gallery</h1>
+                <p id='gallery1'><i>Canvas of emotions</i></p>
+            <Slideshow/>
+            </center>
             <Footer/>
         </div>
      );
