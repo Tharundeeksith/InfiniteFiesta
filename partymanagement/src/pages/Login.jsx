@@ -12,7 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import NavBar from '../components/NavBar';
+import { useNavigate } from 'react-router';
+import { userContext } from '../components/context/Context';
 
 function Copyright(props) {
   return (
@@ -30,15 +31,24 @@ function Copyright(props) {
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme({
-    typography: {
-      fontFamily: 'Poppins, sans-serif',
-    },
-  });
+  typography: {
+    fontFamily: 'Poppins, sans-serif',
+  },
+});
 
-export default function Login() {
+export default function SignIn() {
+  const [log,setLog]=React.useContext(userContext);
+    const [email,setEmail]=React.useState("");
+    const navigate=useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    setLog(true);
+    localStorage.setItem("name",email);
+    if(email.includes("@admin")){
+        navigate("/dashboard")
+    }else{
+        navigate("/")
+    }
     console.log({
       email: data.get('email'),
       password: data.get('password'),
@@ -46,8 +56,7 @@ export default function Login() {
   };
 
   return (
-      <ThemeProvider theme={defaultTheme}>
-        <NavBar/>
+    <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -74,6 +83,7 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e)=>setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -90,6 +100,7 @@ export default function Login() {
               label="Remember me"
             />
             <Button
+            onClick={handleSubmit}
               type="submit"
               fullWidth
               variant="contained"

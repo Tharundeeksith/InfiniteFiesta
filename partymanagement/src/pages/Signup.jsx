@@ -12,7 +12,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import NavBar from '../components/NavBar';
 
 function Copyright(props) {
   return (
@@ -30,10 +29,10 @@ function Copyright(props) {
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme({
-    typography: {
-      fontFamily: 'Poppins, sans-serif',
-    },
-  });
+  typography: {
+    fontFamily: 'Poppins, sans-serif',
+  },
+});
 
 export default function SignUp() {
   const handleSubmit = (event) => {
@@ -47,7 +46,6 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-        <NavBar/>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

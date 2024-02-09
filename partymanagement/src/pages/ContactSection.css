@@ -8,6 +8,16 @@
     /* border-radius: 0.5cm; */
     /* box-shadow: 1px 0.5px black; */
   }
+  #tel1{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #474F7A;
+    /* border-radius: 0.5cm; */
+    /* box-shadow: 1px 0.5px black; */
+  }
   #lname{
     width: 100%;
   padding: 12px 20px;

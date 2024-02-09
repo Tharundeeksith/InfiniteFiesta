@@ -1,4 +1,7 @@
 import React from 'react';
+import Button1 from './Button';
+
+// import BookDialog from './BookDialogue';
 import "./Card.css"
 function Card() {
     return ( 
@@ -10,6 +13,10 @@ function Card() {
                     <center>
                     <h4><b>WEDDING</b></h4>
                     <p><i>San Francisco</i></p>
+                    <div className='button1'>
+                    <Button1/>
+                    </div>
+                    
                     </center>
                     
                 </div>
@@ -20,7 +27,11 @@ function Card() {
                     <center>
                     <h4><b>PRIVATE PARTY</b></h4>
                     <p><i>San Francisco</i></p>
+                    <div className='button1'>
+                    <Button1/>
+                    </div>
                     </center>
+
                     
                 </div>
             </div>
@@ -30,6 +41,9 @@ function Card() {
                     <center>
                     <h4><b>CORPORATE EVENT</b></h4>
                     <p><i>San Francisco</i></p>
+                    <div className='button1'>
+                    <Button1/>
+                    </div>
                     </center>
                     
                 </div>

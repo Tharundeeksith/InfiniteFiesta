@@ -1,4 +1,5 @@
 import React from 'react'
+import Button1 from '../components/Button';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import "./Services.css";
@@ -19,6 +20,7 @@ function Services() {
                     <center>
                     <h4><b>MUSIC SELECTION</b></h4>
                     <p><i>No Detail is Too Small</i></p>
+                    <Button1/>
                     </center>
                     
                 </div>
@@ -29,6 +31,7 @@ function Services() {
                     <center>
                     <h4><b>CONCEPT AND DESIGN PLANNING</b></h4>
                     <p><i>Stunning and Memorable</i></p>
+                    <Button1/>
                     </center>
                     
                 </div>
@@ -39,6 +42,7 @@ function Services() {
                     <center>
                     <h4><b>CATERING AND MENU SELECTION</b></h4>
                     <p><i>Perfectly Planned</i></p>
+                    <Button1/>
                     </center>
                     
                 </div>

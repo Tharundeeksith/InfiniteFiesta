@@ -1,0 +1,35 @@
+.venue-user {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 350px;
+    /* padding: 2px 16px; */
+    height: 400px;
+    background-color:white;
+    border-radius: 1cm;
+    /* display: flex; */
+    
+  }
+  .something{
+    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 50px;
+  }
+
+  
+  .venue:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+#img-user{
+    width: 60%;
+    height: 50%;
+    filter: contrast(120%);
+    margin-top: 10px;
+    border-radius: 50%;
+    justify-content: center;
+    margin-left: 70px;
+}
+  
+ 

@@ -1,0 +1,9 @@
+.btn-mui{
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+
+}
+.btn-mui:hover{
+    color:white;
+    border-color:white;
+}

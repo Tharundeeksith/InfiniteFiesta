@@ -22,17 +22,19 @@ const ContactSection = () => {
             <input type="text" id="fname" name="firstname" placeholder="Your name.." />
             <label htmlFor="lname">Last Name</label>
             <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
-            <label htmlFor="country">Event Type</label>
+            <label htmlFor="lname">Mobile-No</label>
+            <input type="tel" id="tel1" name="lastname" placeholder="Your Phone Number.." />
+            {/* <label htmlFor="country">Event Type</label>
             <select id="country" name="country">
               <option value="australia">Marriage Event</option>
               <option value="canada">Birthday Party Event</option>
               <option value="usa">Corporate event</option>
             </select>
             <label for="eventdate">Event Date</label>
-            <input type="date" id="date1" name="eventdate"></input>
+            <input type="date" id="date1" name="eventdate"></input> */}
             <label htmlFor="subject">Subject</label>
             <textarea id="subject" name="subject" placeholder="Write something.." style={{ height: '170px' }}></textarea>
-            <input type="submit" value="Book Now" />
+            <input type="submit" value="Submit" />
           </form>
         </div>
       </div>

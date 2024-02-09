@@ -65,6 +65,7 @@
     background-color: black;
     color: aliceblue;
     font-family: 'Poppins', sans-serif;
+    cursor: pointer;
   }
 .hevents{
   text-align: center;

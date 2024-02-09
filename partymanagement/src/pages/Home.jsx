@@ -4,8 +4,13 @@ import Card from '../components/Card';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import"./Home.css";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Home() {
     const navigate = useNavigate();
+    const notify = () => toast.success("Success");
     return (  
         <div>
             <NavBar/>
@@ -17,7 +22,8 @@ function Home() {
             <div className='sub1-container'>
                 <h2 id='subscribe'>Subscribe Form</h2>
                 <input type="email" id="emailhome" name="email" placeholder=' eg.,email@example.com'/>
-                <button id='buttonhome' type="submit">Join</button>
+                <button id='buttonhome' onClick={notify} type="submit">Join</button>
+                <ToastContainer/>
             </div>
             <div className="hevents">
                 <h1>PAST EVENTS</h1>
