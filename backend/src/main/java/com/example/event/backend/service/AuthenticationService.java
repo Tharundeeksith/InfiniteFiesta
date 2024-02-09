@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.event.backend.dto.request.AuthenticationRequest;
 import com.example.event.backend.dto.request.RegisterRequest;
 import com.example.event.backend.dto.response.AuthenticationResponse;
+import com.example.event.backend.dto.response.RegisterResponse;
 import com.example.event.backend.model.Role;
 import com.example.event.backend.model.User;
 import com.example.event.backend.repository.UserRepo;
@@ -32,7 +33,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    public RegisterResponse register(RegisterRequest request) {
         var user = User
                 .builder()
                 .name(request.getName())
@@ -42,8 +43,8 @@ public class AuthenticationService {
                 .build();
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
+        return RegisterResponse.builder()
+                .message("User Registered Successfully!!")
                 .build();
     }
 
@@ -60,5 +61,9 @@ public class AuthenticationService {
 	public List<User> getData() {
 		return userRepository.findAll();
 	}
+        public boolean deleteById(long id){
+                userRepository.deleteById(id);
+                return true;
+            }
 
 }
