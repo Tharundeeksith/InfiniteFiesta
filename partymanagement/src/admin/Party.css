@@ -1,0 +1,32 @@
+.party-dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .party-dashboard h1 {
+    text-align: center;
+  }
+  
+  .party-dashboard form {
+    margin-bottom: 20px;
+  }
+  
+  .party-dashboard input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .party-dashboard button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .party-dashboard button:hover {
+    background-color: #0056b3;
+  }

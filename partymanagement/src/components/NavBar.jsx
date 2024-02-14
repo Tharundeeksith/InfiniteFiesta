@@ -11,11 +11,11 @@ function NavBar() {
             <div className='nav'>
                 <h1 id='title'> INFINITEFIESTA</h1>
                 <div className='link1'>
-                 <Link to="/" className="active">Home</Link>
-                {/* <Link to="/about">About</Link> */}
-                <Link to="/work">Work</Link>
-                <Link to="/contact">Contact</Link>
-                <Link to="/services">Services</Link>
+                 <Link to="/" id='elementnav' className="active">Home</Link>
+                <Link to="/about">About</Link>
+                <Link to="/work" id='elementnav'>Work</Link>
+                <Link to="/contact"id='elementnav'>Contact</Link>
+                {/* <Link to="/services"id='elementnav'>Services</Link> */}
                 {/* <Link to="/user">User</Link> */}
                 {
                     log?

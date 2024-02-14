@@ -6,16 +6,21 @@ a{
     text-decoration: none;
     cursor: pointer;
     padding: 20px;
-    color: black;
+    
+    
     /* font-family: 'Russo One', sans-serif; */
     font-family: 'Poppins', sans-serif;
     /* font-family: 'Roboto', sans-serif; */
     /* font-family: 'Russo One', sans-serif; */
 }
+#elementnav{
+    color:black;
+}
 .link1{
     /* margin-top:2%; */
     margin-left: 47%;
     display: flex;
+    color: black;
 }
 #user-name{
     /* margin-left: 110%; */
@@ -25,6 +30,7 @@ a{
 }
 #accountbox{
     font-size:2px;
+    color: black;
 }
 #title{
     font-family: 'Roboto', sans-serif;

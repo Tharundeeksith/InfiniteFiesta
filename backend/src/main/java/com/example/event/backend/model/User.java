@@ -39,7 +39,7 @@ public class User implements UserDetails {
     private String name;
     private String email;
     private String password;
-//    private Long mobile;
+    private Long mobile;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -58,15 +58,16 @@ public class User implements UserDetails {
     public String getPassword() {
         return password;
     }
-    
-//    public String getName() {
-//    	return name;
-//    }
-//    
-//    public Long getMobile()
-//    {
-//    	return mobile;
-//    }
+ 
+   public String getName() {
+   	return name;
+   }
+   
+   
+   public Long getMobile()
+   {
+   	return mobile;
+   }
 
     @Override
     public boolean isAccountNonExpired() {

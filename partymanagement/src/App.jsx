@@ -16,6 +16,9 @@ import User from './pages/User';
 import {userContext} from './components/context/Context'
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router';
+import AddLocationAlt from '@mui/icons-material/AddLocationAlt';
+import VenueAddForm from './pages/VenueAddForm';
+import Party from './admin/Party';
 
 function App() {
   const [log,setLog]=useState(false);
@@ -35,6 +38,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/venues" element={<Venues/>} />
         <Route path="/user" element={<User/>} />
+        <Route path="/venueaddform" element={<VenueAddForm/>} />
+        <Route path="/partyaddform" element={<Party/>} />
         
       </Routes>
     </BrowserRouter>

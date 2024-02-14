@@ -19,9 +19,9 @@ export default function Menu1() {
   };
   const handleLogout = () => {
     // setAnchorEl(null);
-    console.log("ehllo");
-    // window.location.reload(),
-    localStorage.clear();
+    // console.log("ehllo");
+    window.location.reload();
+    // localStorage.clear();
   };
 
   return (

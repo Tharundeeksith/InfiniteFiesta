@@ -1,77 +1,45 @@
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import { LineChart, axisClasses } from '@mui/x-charts';
+import React from 'react';
+import './Chart.css'; // Import CSS file for styling
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-import Title from './Title';
-
-// Generate Sales Data
-function createData(time, amount) {
-  return { time, amount: amount ?? null };
-}
-
-const data = [
-  createData('00:00', 0),
-  createData('03:00', 300),
-  createData('06:00', 600),
-  createData('09:00', 800),
-  createData('12:00', 1500),
-  createData('15:00', 2000),
-  createData('18:00', 2400),
-  createData('21:00', 2400),
-  createData('24:00'),
-];
-
-export default function Chart() {
-  const theme = useTheme();
+function Chart() {
+  // Sample data for the chart
+  const data = [
+    { name: 'Jan', users: 400, parties: 240, venues: 300 },
+    { name: 'Feb', users: 300, parties: 139, venues: 200 },
+    { name: 'Mar', users: 200, parties: 980, venues: 170 },
+    { name: 'Apr', users: 278, parties: 390, venues: 140 },
+    { name: 'May', users: 189, parties: 480, venues: 260 },
+    { name: 'Jun', users: 239, parties: 380, venues: 210 },
+    { name: 'Jul', users: 349, parties: 430, venues: 310 },
+    { name: 'Aug', users: 400, parties: 240, venues: 300 },
+    { name: 'Sep', users: 300, parties: 139, venues: 200 },
+    { name: 'Oct', users: 200, parties: 980, venues: 170 },
+    { name: 'Nov', users: 278, parties: 390, venues: 140 },
+    { name: 'Dec', users: 189, parties: 480, venues: 260 },
+  ];
 
   return (
-    <React.Fragment>
-      <Title>Today</Title>
-      <div style={{ width: '100%', flexGrow: 1, overflow: 'hidden' }}>
-        <LineChart
-          dataset={data}
-          margin={{
-            top: 16,
-            right: 20,
-            left: 70,
-            bottom: 30,
-          }}
-          xAxis={[
-            {
-              scaleType: 'point',
-              dataKey: 'time',
-              tickNumber: 2,
-              tickLabelStyle: theme.typography.body2,
-            },
-          ]}
-          yAxis={[
-            {
-              label: 'Sales ($)',
-              labelStyle: {
-                ...theme.typography.body1,
-                fill: theme.palette.text.primary,
-              },
-              tickLabelStyle: theme.typography.body2,
-              max: 2500,
-              tickNumber: 3,
-            },
-          ]}
-          series={[
-            {
-              dataKey: 'amount',
-              showMark: false,
-              color: theme.palette.primary.light,
-            },
-          ]}
-          sx={{
-            [`.${axisClasses.root} line`]: { stroke: theme.palette.text.secondary },
-            [`.${axisClasses.root} text`]: { fill: theme.palette.text.secondary },
-            [`& .${axisClasses.left} .${axisClasses.label}`]: {
-              transform: 'translateX(-25px)',
-            },
-          }}
-        />
+    <div className="admin-dashboard">
+      {/* <h1 className="dashboard-title">Admin Dashboard</h1> */}
+
+      {/* Chart */}
+      <div className="chart-container">
+        <ResponsiveContainer width="100%" height={400}>
+          <LineChart data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="users" stroke="#8884d8" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="parties" stroke="#82ca9d" />
+            <Line type="monotone" dataKey="venues" stroke="#ffc658" />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
+
+export default Chart;

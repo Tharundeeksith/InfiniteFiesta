@@ -1,0 +1,52 @@
+.venue-add-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    /* padding-right: -40px; */
+    border: 1px solid #ccc;
+    /* box-shadow: 2px 2px black; */
+    border-radius: 5px;
+    /* background-color: #f9f9f9; */
+    font-family: Poppins, sans-serif;
+    justify-content: center;
+    /* background-image: linear-gradient(180deg, rgba(255,0,0,0), rgb(5, 0, 0)); */
+  }
+  
+  .venue-add-form-container h2 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-submit:hover {
+    background-color: #0056b3;
+  }
+  

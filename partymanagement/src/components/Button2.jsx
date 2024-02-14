@@ -2,9 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router';
-import "./Button.css";
+import "./Button2.css";
 
-export default function Button1() {
+export default function Button2() {
 
     const navigate=useNavigate();
   return (
@@ -17,7 +17,7 @@ export default function Button1() {
       <div>
         
         <Button className='btn-mui' variant="outlined" size="medium" onClick={()=>{
-            navigate("/services")
+            navigate("/venues")
         }}>
           Book Now
         </Button>

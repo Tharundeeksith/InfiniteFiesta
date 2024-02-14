@@ -27,5 +27,6 @@ public class Venue {
     String link;
     int price;
     String location;
+    int capacity;
     String avail;
 }
