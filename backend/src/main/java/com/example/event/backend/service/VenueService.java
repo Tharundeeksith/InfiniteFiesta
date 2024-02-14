@@ -33,13 +33,16 @@ public class VenueService {
 
     public Venue updateVenue(Venue venue, int id) {
 		Venue model=repo.findById(id).get();
-		model.setId(venue.getId());
-		model.setDes(venue.getDes());
-		model.setAvail(venue.getAvail());
-		model.setLink(venue.getLink());
-		model.setLocation(venue.getLocation());
-		model.setName(venue.getName());
-		model.setPrice(venue.getPrice());
+		    model.setName(venue.getName());
+			model.setAddress(venue.getAddress());
+			model.setPincode(venue.getPincode());
+			model.setDes(venue.getDes());
+			model.setLink(venue.getLink());
+			model.setPrice(venue.getPrice());
+			model.setCapacity(venue.getCapacity());
+			model.setContactnum(venue.getContactnum());
+			model.setAvail(venue.getAvail());
+			model.setRating(venue.getRating());
 		
 		repo.save(model);
 		return model;

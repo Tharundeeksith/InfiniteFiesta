@@ -1,10 +1,18 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import Chart from './Chart';
 import './Dashboard.css'; // Import CSS file for styling
 
 function Dashboard() {
   // Define state variables for party data
- 
+  const[venues,setVenues]=useState([]);
+ useEffect(()=>{
+  axios.get("http://localhost:8081/api/v1/auth/venues")
+  .then((r)=>{
+    setVenues(r.data);
+  })
+ })
 
   return (
     <div className="admin-dashboard">
@@ -43,10 +51,10 @@ function Dashboard() {
             <th>Rating</th>
           </tr>
         </thead>
-        {/* <tbody>
-          {data.map((item, index) => (
+        <tbody>
+          {venues.map((item, index) => (
             <tr key={index}>
-              <td>{item.name} hello</td>
+              <td>{item.name}</td>
               <td>{item.address}</td>
               <td>{item.price}</td>
               <td>{item.contactNum}</td>
@@ -54,7 +62,7 @@ function Dashboard() {
               <td>{item.rating}</td>
             </tr>
           ))}
-        </tbody> */}
+        </tbody>
       </table>
     </div>
     </div>
