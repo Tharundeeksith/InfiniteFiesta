@@ -31,9 +31,9 @@ function Dashboard() {
         <li>
           <a href="/partyaddform">Parties</a>
         </li>
-        <li>
+        {/* <li>
           <a href="#users">Users</a>
-        </li>
+        </li> */}
         <li>
           <a href="/login">Logout</a>
         </li>
@@ -46,9 +46,11 @@ function Dashboard() {
             <th>Name</th>
             <th>Address</th>
             <th>Price</th>
-            <th>Contact No</th>
-            <th>Availability</th>
-            <th>Rating</th>
+            {/* <th>Contact No</th> */}
+             {/* <th>Availability</th> */}
+            {/* <th>Rating</th>  */}
+            <th>Status</th>
+            <th>Approve</th>
           </tr>
         </thead>
         <tbody>
@@ -57,9 +59,17 @@ function Dashboard() {
               <td>{item.name}</td>
               <td>{item.address}</td>
               <td>{item.price}</td>
-              <td>{item.contactNum}</td>
-              <td>{item.avail}</td>
-              <td>{item.rating}</td>
+              {/* <td>{item.contactNum}</td> */}
+              {/* <td>{item.avail}</td> */}
+              <td>{item.status}</td>
+              {/* <td>{item.rating}</td> */}
+              <center>
+              <button id='approvebtn' onClick={()=>{
+                axios.put(`http://localhost:8081/api/v1/auth/venues/${item.id}`,item)
+              }}>Approve</button>
+              </center>
+             
+             
             </tr>
           ))}
         </tbody>

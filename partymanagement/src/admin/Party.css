@@ -18,6 +18,11 @@
     padding: 10px;
     margin-bottom: 10px;
   }
+  .party-dashboard input[type="url"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
   
   .party-dashboard button {
     padding: 10px 20px;
@@ -29,4 +34,8 @@
   
   .party-dashboard button:hover {
     background-color: #0056b3;
+  }
+  .party-item img{
+    width:300px ;
+    /* height: 100px; */
   }

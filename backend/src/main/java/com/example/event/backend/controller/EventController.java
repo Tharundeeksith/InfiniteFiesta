@@ -34,7 +34,7 @@ public class EventController {
         return service.addEvent(event);
     }
 
-    @GetMapping("")
+    @GetMapping("/party")
     public List<Event> getAllEvents() {
         return service.getAllEvents();
     }

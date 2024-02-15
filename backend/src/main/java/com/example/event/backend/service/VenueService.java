@@ -35,14 +35,15 @@ public class VenueService {
 		Venue model=repo.findById(id).get();
 		    model.setName(venue.getName());
 			model.setAddress(venue.getAddress());
-			model.setPincode(venue.getPincode());
-			model.setDes(venue.getDes());
+			model.setId(venue.getId());
+			
+		
 			model.setLink(venue.getLink());
 			model.setPrice(venue.getPrice());
-			model.setCapacity(venue.getCapacity());
-			model.setContactnum(venue.getContactnum());
-			model.setAvail(venue.getAvail());
-			model.setRating(venue.getRating());
+			model.setStatus("Approved");
+			// model.setContactnum(venue.getContactnum());
+			// model.setAvail(venue.getAvail());
+			// model.setRating(venue.getRating());
 		
 		repo.save(model);
 		return model;

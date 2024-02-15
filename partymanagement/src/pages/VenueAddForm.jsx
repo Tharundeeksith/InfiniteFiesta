@@ -6,12 +6,10 @@ function VenueAddForm() {
   // State variables for form inputs
   const [formData, setFormData] = useState({
     name: '',
-    des:'',
+    address:'',
     link:'',
-    price:'',
-    location: '',
-    capacity: '',
-    avail:''
+    price:0,
+    status:''
   });
 
   // Handle input change
@@ -26,6 +24,7 @@ function VenueAddForm() {
   // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
+    // console.log(formData);
     axios.post("http://localhost:8081/api/v1/auth/venues",formData)
     // Perform form submission logic here
     console.log(formData);
@@ -46,24 +45,24 @@ function VenueAddForm() {
             required
           />
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="description">Description</label>
           <input
-            type="number"
+            type="text"
             id="description"
             name="description"
             value={formData.des}
             onChange={handleChange}
             // required
           />
-        </div>
+        </div> */}
         <div className="form-group">
-          <label htmlFor="location">Location</label>
+          <label htmlFor="address">Address</label>
           <input
             type="text"
-            id="location"
-            name="location"
-            value={formData.location}
+            id="address"
+            name="address"
+            value={formData.address}
             onChange={handleChange}
             required
           />
@@ -82,7 +81,7 @@ function VenueAddForm() {
         <div className="form-group">
           <label htmlFor="price">Price</label>
           <input
-            type="text"
+            type="number"
             id="price"
             name="price"
             value={formData.price}
@@ -91,27 +90,17 @@ function VenueAddForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="capacity">Capacity</label>
+          <label htmlFor="status">Status</label>
           <input
-            type="number"
-            id="capacity"
-            name="capacity"
-            value={formData.capacity}
+            type="text"
+            id="status"
+            name="status"
+            value={formData.status}
             onChange={handleChange}
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="availability">Availability</label>
-          <input
-            type="text"
-            id="availability"
-            name="availability"
-            value={formData.avail}
-            onChange={handleChange}
-            // required
-          />
-        </div>
+        
         <button type="submit" className="btn-submit">Submit</button>
       </form>
     </div>

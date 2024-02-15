@@ -1,56 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Button1 from './Button';
+import "./Card.css";
+import { useNavigate } from 'react-router';
 
-// import BookDialog from './BookDialogue';
-import "./Card.css"
 function Card() {
-    return ( 
+    const navigate=useNavigate();
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        // Fetch data from backend API
+        axios.get('http://localhost:8081/api/v1/auth/events/party')
+            .then(response => {
+                setEvents(response.data); // Set fetched events to the state
+            })
+            .catch(error => {
+                console.error('Error fetching events:', error);
+            });
+    }, []); // Empty dependency array to run the effect only once
+
+    return (
         <div>
             <div className='card'>
-            <div className="card1">
-                <img src="https://static.wixstatic.com/media/e276cb66d98a4e0ab11859b70a72dd57.jpg/v1/fill/w_820,h_600,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/e276cb66d98a4e0ab11859b70a72dd57.jpg" alt="Avatar" style={{ width: '100%' }} />
-                <div className="container1">
-                    <center>
-                    <h4><b>WEDDING</b></h4>
-                    <p><i>San Francisco</i></p>
-                    <div className='button1'>
-                    <Button1/>
+                {events.map(event => (
+                    <div className="card1" key={event.id}>
+                        <img src={event.link} alt="Event" style={{ width: '100%' , height:'70%'}} />
+                        <div className="container1">
+                            <center>
+                                <h4><b>{event.type}</b></h4>
+                                <p><i>{event.location}</i></p>
+                                <div className='button1'>
+                                    {/* <Button1 /> */}
+                                    <button id='bookbtn' onClick={()=>{
+                                        navigate("/venues")
+                                        localStorage.setItem("venue",JSON.stringify(event));
+                                    }}>Book Now</button>
+                                </div>
+                            </center>
+                        </div>
                     </div>
-                    
-                    </center>
-                    
-                </div>
-            </div>
-            <div className="card2">
-                <img src="https://static.wixstatic.com/media/516a7bfa26094100803081e77f3c76cf.jpg/v1/fill/w_820,h_600,fp_0.11_0.38,q_85,usm_0.66_1.00_0.01,enc_auto/516a7bfa26094100803081e77f3c76cf.jpg" alt="Avatar" style={{ width: '100%' }} />
-                <div className="container2">
-                    <center>
-                    <h4><b>PRIVATE PARTY</b></h4>
-                    <p><i>San Francisco</i></p>
-                    <div className='button1'>
-                    <Button1/>
-                    </div>
-                    </center>
-
-                    
-                </div>
-            </div>
-            <div className="card3">
-                <img src="https://static.wixstatic.com/media/19fdab20a31144fc87f36b7db734297d.jpg/v1/fill/w_820,h_600,fp_0.36_0.51,q_85,usm_0.66_1.00_0.01,enc_auto/19fdab20a31144fc87f36b7db734297d.jpg" alt="Avatar" style={{ width: '100%' }} />
-                <div className="container3">
-                    <center>
-                    <h4><b>CORPORATE EVENT</b></h4>
-                    <p><i>San Francisco</i></p>
-                    <div className='button1'>
-                    <Button1/>
-                    </div>
-                    </center>
-                    
-                </div>
+                ))}
             </div>
         </div>
-        </div>
-     );
+    );
 }
 
 export default Card;

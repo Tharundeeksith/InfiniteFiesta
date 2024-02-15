@@ -12,10 +12,10 @@ function NavBar() {
                 <h1 id='title'> INFINITEFIESTA</h1>
                 <div className='link1'>
                  <Link to="/" id='elementnav' className="active">Home</Link>
-                <Link to="/about">About</Link>
+                <Link to="/about" id='elementnav'>About</Link>
                 <Link to="/work" id='elementnav'>Work</Link>
+                <Link to="/user" id='elementnav'>Bookings</Link>
                 <Link to="/contact"id='elementnav'>Contact</Link>
-                {/* <Link to="/services"id='elementnav'>Services</Link> */}
                 {/* <Link to="/user">User</Link> */}
                 {
                     log?

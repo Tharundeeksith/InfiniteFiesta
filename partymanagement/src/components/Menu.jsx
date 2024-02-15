@@ -47,7 +47,7 @@ export default function Menu1() {
         TransitionComponent={Fade}
       >
         <MenuItem onClick={""}>Profile</MenuItem>
-        <MenuItem onClick={()=>{navigate("/dashboard")}}>Dashboard</MenuItem>
+        {/* <MenuItem onClick={()=>{navigate("/dashboard")}}>Dashboard</MenuItem> */}
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </div>

@@ -21,16 +21,13 @@ public class Venue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID
     @Column(name = "venue_id")
-    private Long id; // Use Long for auto-generated IDs
+    private int id; // Use Long for auto-generated IDs
     
     private String name;
     private String address;
-    private int pincode;
-    private String des;
     private String link;
     private int price;
-    private int capacity;
-    private Long contactnum; // Changed to Long for consistency
-    private String avail;
-    private String rating;
+    private String status;
+    // private String avail;
+    // private String rating;
 }
