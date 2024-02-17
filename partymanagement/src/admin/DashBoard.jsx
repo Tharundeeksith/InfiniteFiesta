@@ -1,82 +1,56 @@
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import Chart from './Chart';
+import Sidebar from './Sidebar'; // Import the Sidebar component
 import './Dashboard.css'; // Import CSS file for styling
 
 function Dashboard() {
-  // Define state variables for party data
-  const[venues,setVenues]=useState([]);
- useEffect(()=>{
-  axios.get("http://localhost:8081/api/v1/auth/venues")
-  .then((r)=>{
-    setVenues(r.data);
-  })
- })
+  const [venues, setVenues] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8081/api/v1/auth/venues")
+      .then((response) => {
+        setVenues(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching venues:', error);
+      });
+  }, []);
+
+  const handleApprove = (id) => {
+    axios.put(`http://localhost:8081/api/v1/auth/venues/${id}`, {
+      status: "Approved"
+    }).then((response) => {
+      // Update the status locally after successful approval
+      const updatedVenues = venues.map((venue) =>
+        venue.id === id ? { ...venue, status: "Approved" } : venue
+      );
+      setVenues(updatedVenues);
+      // Handle success if needed
+    }).catch((error) => {
+      console.error('Error approving venue:', error);
+    });
+  };
 
   return (
-    <div className="admin-dashboard">
-      <div className='admin-nav'>
-      <h1>Admin Dashboard - Infinite Fiesta</h1>
-      <Chart/>
-      </div>
-      <div className="sidebar">
-      <div className="sidebar-header">
-        <h3>Dashboard</h3>
-      </div>
-      <ul className="sidebar-menu">
-        <li>
-          <a href="/venueaddform">Venues</a>
-        </li>
-        <li>
-          <a href="/partyaddform">Parties</a>
-        </li>
-        {/* <li>
-          <a href="#users">Users</a>
-        </li> */}
-        <li>
-          <a href="/login">Logout</a>
-        </li>
-      </ul>
-    </div>
-    <div className="table-container">
-      <table className="admin-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Price</th>
-            {/* <th>Contact No</th> */}
-             {/* <th>Availability</th> */}
-            {/* <th>Rating</th>  */}
-            <th>Status</th>
-            <th>Approve</th>
-          </tr>
-        </thead>
-        <tbody>
-          {venues.map((item, index) => (
-            <tr key={index}>
-              <td>{item.name}</td>
-              <td>{item.address}</td>
-              <td>{item.price}</td>
-              {/* <td>{item.contactNum}</td> */}
-              {/* <td>{item.avail}</td> */}
-              <td>{item.status}</td>
-              {/* <td>{item.rating}</td> */}
+    <div className="dashboard-container">
+      <Sidebar />
+      <div className="card-container-venue">
+        {venues.map((venue) => (
+          <div className="card-venue" key={venue.id}>
+            <img src={venue.link} alt="Venue" />
+            <div className="card-content-venue">
               <center>
-              <button id='approvebtn' onClick={()=>{
-                axios.put(`http://localhost:8081/api/v1/auth/venues/${item.id}`,item)
-              }}>Approve</button>
+              <h3>{venue.name}</h3>
+              <p>{venue.address}</p>
+              <p>{venue.price} Rs</p>
+              <p>{venue.status}</p>
+              <button id='approvebtn' onClick={() => handleApprove(venue.id)}>Approve</button>
               </center>
-             
-             
-            </tr>
-          ))}
-        </tbody>
-      </table>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-    </div>
-    
   );
 }
 

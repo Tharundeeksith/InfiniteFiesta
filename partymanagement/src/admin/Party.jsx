@@ -33,21 +33,21 @@ function Party() {
       setParties([...parties, response.data]);
       // Clear form fields after successful submission
       setPartyName('');
-      setDate('');
+      setLink('');
       setLocation('');
     } catch (error) {
       console.error('Error adding party:', error);
     }
   };
 
-//   const deleteParty = async (id) => {
-//     try {
-//       await axios.delete(`http://localhost:8081/api/v1/auth/events`);
-//       setParties(parties.filter(party => party.id !== id));
-//     } catch (error) {
-//       console.error('Error deleting party:', error);
-//     }
-//   };
+  const deleteParty = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8081/api/v1/auth/events/${id}`);
+      setParties(parties.filter(party => party.id !== id));
+    } catch (error) {
+      console.error('Error deleting party:', error);
+    }
+  };
 
   return (
     <div className="party-dashboard">
@@ -56,16 +56,23 @@ function Party() {
       </div>
       <form onSubmit={addParty}>
         <input type="text" placeholder="Party Name" value={partyName} onChange={(e) => setPartyName(e.target.value)} />
-        <input type="url" placeholder="Link" value={link} onChange={(e) => setDate(e.target.value)} />
+        <input type="url" placeholder="Link" value={link} onChange={(e) => setLink(e.target.value)} />
         <input type="text" placeholder="Location" value={location} onChange={(e) => setLocation(e.target.value)} />
-        <button type="submit">Add Event</button>
+        <center>
+        <button type="submit" id='add-event'>Add Event</button>
+        </center>
+        
       </form>
       <div className="party-list">
         {parties.map((party, index) => (
           <div key={index} className="party-item">
-            <h3>{party.type}</h3>
+            <center>
+              <h3>{party.type}</h3>
+            </center>
             <img src={party.link} />
-            <p>Location: {party.location}</p>
+            <center>
+              <p>{party.location}</p>
+            </center>
             {/* <button onClick={() => deleteParty(party.id)}>Delete</button> */}
           </div>
         ))}

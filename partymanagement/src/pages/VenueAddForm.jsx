@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import './VenueAddForm.css'; // Import CSS file for styling
 
@@ -20,19 +20,39 @@ function VenueAddForm() {
       [name]: value
     });
   };
+  const [venues, setVenues] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8081/api/v1/auth/venues")
+      .then((response) => {
+        setVenues(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching venues:', error);
+      });
+  }, []);
 
   // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     // console.log(formData);
     axios.post("http://localhost:8081/api/v1/auth/venues",formData)
+    .then(response => {
+        console.log(response.data);
+        alert('Venue added successfully!'); // Show alert box
+      })
+      .catch(error => {
+        console.error('Error adding venue:', error);
+        alert('Failed to add venue. Please try again.'); // Show alert box for error
+      });
     // Perform form submission logic here
     console.log(formData);
   };
 
   return (
     <div className="venue-add-form-container">
-      <h2>Add Venue</h2>
+      <center><h2>Add Venue</h2></center>
+      
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Venue Name</label>
@@ -45,17 +65,6 @@ function VenueAddForm() {
             required
           />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="description">Description</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            value={formData.des}
-            onChange={handleChange}
-            // required
-          />
-        </div> */}
         <div className="form-group">
           <label htmlFor="address">Address</label>
           <input
@@ -100,9 +109,28 @@ function VenueAddForm() {
             required
           />
         </div>
-        
+        <center>
         <button type="submit" className="btn-submit">Submit</button>
+        </center>
+        
+       
       </form>
+      <div className="card-container-venue">
+        {venues.map((venue) => (
+          <div className="card-venue" key={venue.id}>
+            <img src={venue.link} alt="Venue" />
+            <div className="card-content-venue">
+              <center>
+              <h3>{venue.name}</h3>
+              <p>{venue.address}</p>
+              <p>{venue.price} Rs</p>
+              {/* <p>{venue.status}</p>
+              <button id='approvebtn' onClick={() => handleApprove(venue.id)}>Approve</button> */}
+              </center>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

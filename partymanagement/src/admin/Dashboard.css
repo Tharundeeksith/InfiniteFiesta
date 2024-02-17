@@ -1,135 +1,130 @@
-.admin-dashboard {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .admin-dashboard h1 {
-    text-align: center;
-  }
-  
-  
-  .admin-dashboard form {
-    margin-bottom: 20px;
-  }
-  
-  .admin-dashboard input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .admin-dashboard button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .admin-dashboard button:hover {
-    background-color: #0056b3;
-  }
-  
-  .party-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  
-  .party-item {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-  }
-  
- 
-  .sidebar-header {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar-header h3 {
-    margin: 0;
-  }
-  
-  .sidebar-menu {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar-menu li {
-    padding: 10px;
-  }
-  
-  .sidebar-menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
-  }
-  
-  .sidebar-menu a:hover {
-    background-color: #555;
-  }
-  .tab  .party-item h3 {
-    margin-top: 0;
-  }
+/* Dashboard.css */
 
-  .sidebar {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #333;
-    padding-top: 20px;
-    /* text-align: center; */
-    float: left;
-  }
- le-container {
-    overflow-x: auto;
-    /* justify-content: center; */
-   
-  }
-  
-  .admin-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-left: 30px;
-  }
-  
-  .admin-table th, .admin-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .admin-table th {
-    background-color: #f2f2f2;
-  }
-  
-  .admin-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .admin-table tr:hover {
-    background-color: #ddd;
-  }
-  #approvebtn{
-    padding: 4px;
-    background-color: green;
-    margin-top: 10px;
-    
-  }
-  #approvebtn:hover{
-    padding: 4px;
-    background-color: rgb(7, 177, 7);
-    margin-top: 10px;
-    
-  }
-  
-  
-  
+/* Global Styles */
+/* body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #222;
+  color: #fff;
+} */
+
+/* Title Style */
+/* .title-admin {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+} */
+
+/* Container for Dashboard */
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #222;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 200px;
+  height: 100vh; /* Adjust height to fit the entire viewport */
+  background-color: #333;
+  padding-top: 50px;
+  position: fixed; /* Make the sidebar fixed */
+  top: 0; /* Position it at the top of the viewport */
+  left: 0; /* Position it at the left side of the viewport */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds viewport height */
+}
+
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+  /* margin-bottom: 200px; */
+}
+
+.sidebar-menu li {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.sidebar-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar-menu a:hover {
+  color: #00bcd4;
+}
+
+/* Card Container Styles */
+.card-container-venue {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 200px;
+  font-family: 'Poppins', sans-serif;
+  /* background-color: whitesmoke; */
+}
+
+.card-venue {
+  width: 300px;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  background-color: #444;
+}
+
+.card-venue:hover {
+  transform: translateY(-5px);
+}
+
+.card-venue img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-content-venue {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-content-venue h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #ccc;
+}
+
+.card-content-venue p {
+  margin-top: 10px;
+  font-style: italic;
+  color: #ccc;
+}
+
+#approvebtn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+#approvebtn:hover {
+  background-color: #45a049;
+}

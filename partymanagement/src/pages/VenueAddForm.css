@@ -1,52 +1,111 @@
+/* VenueAddForm.css */
+
+/* Container for the entire form */
 .venue-add-form-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 30px;
-    /* padding-right: -40px; */
-    border: 1px solid #ccc;
-    /* box-shadow: 2px 2px black; */
-    border-radius: 5px;
-    /* background-color: #f9f9f9; */
-    font-family: Poppins, sans-serif;
-    justify-content: center;
-    /* background-image: linear-gradient(180deg, rgba(255,0,0,0), rgb(5, 0, 0)); */
-  }
-  
-  .venue-add-form-container h2 {
-    text-align: center;
-  }
-  
-  .form-group {
+  width: 100%;
+  /* max-width: 500px; */
+  margin-bottom: 20px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #333; /* Dark background color */
+  color: #fff; /* Light text color */
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* Form styles */
+.venue-add-form-container form {
+  /* display: flex; */
+  /* flex-direction: column; */
+    width: 100%;
+    max-width: 500px;
     margin-bottom: 20px;
+    margin-left: 470px;
   }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .btn-submit {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn-submit:hover {
-    background-color: #0056b3;
-  }
-  
+
+
+ .form-group {
+  margin-bottom: 20px;
+  /* margin-left: 500px; */
+}
+
+.venue-add-form-container form label {
+  font-weight: bold;
+}
+
+.venue-add-form-container form input[type="text"],
+.venue-add-form-container form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #555; /* Darker input background color */
+  color: #fff; /* Light text color */
+  border: none;
+  border-radius: 4px;
+}
+
+.venue-add-form-container form .btn-submit {
+  width: 30%;
+  padding: 10px;
+  background-color: #4CAF50; /* Green submit button color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.venue-add-form-container form .btn-submit:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Venue card styles */
+.card-container-venue {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+  /* justify-content: space-around; */
+  margin-right: 150px;
+}
+
+.card-venue {
+  width: 300px;
+  margin: 10px;
+  padding: 20px; /* Increased padding for better spacing */
+  background-color: #444; /* Dark card background color */
+  color: #fff; /* Light text color */
+  border-radius: 8px;
+}
+
+.card-venue img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.card-content-venue {
+  text-align: center;
+}
+
+.card-content-venue h3 {
+  margin-top: 10px;
+  margin-bottom: 10px; /* Increased margin for better spacing */
+}
+
+.card-content-venue p {
+  margin-bottom: 10px; /* Increased margin for better spacing */
+}
+
+#approvebtn {
+  padding: 8px 16px;
+  background-color: #008CBA; /* Blue approve button color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#approvebtn:hover {
+  background-color: #005F6B; /* Darker blue on hover */
+}
